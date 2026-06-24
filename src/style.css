@@ -17,7 +17,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 60px;
 }
 
 body {
@@ -137,11 +137,11 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  height: 72px;
+  height: 52px;
 }
 
 .nav-logo img {
-  height: 48px;
+  height: 38px;
   width: auto;
 }
 
@@ -344,9 +344,10 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hero-logo {
-  width: clamp(200px, 50vw, 400px);
+  width: clamp(230px, 57vw, 460px);
   height: auto;
   animation: heroLogoEntrance 1.2s ease-out forwards;
+  margin-top: -3rem;
 }
 
 @media (min-width: 768px) {
@@ -356,6 +357,7 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .hero-logo {
     width: clamp(264px, 45vw, 500px);
+    margin-top: 0;
   }
 }
 
