@@ -11193,3 +11193,156 @@ p {
 .address strong {
   font-size: 1.2rem;
 }
+
+/* ===== HERO (Video Scrub) ===== */
+#hero-track {
+  position: relative;
+}
+
+.hero-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #0D0D0D;
+  display: flex;
+  align-items: center;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.visible-desktop {
+  display: block;
+}
+
+.visible-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .visible-desktop {
+    display: none;
+  }
+  .visible-mobile {
+    display: block;
+  }
+}
+
+#hero-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: #0D0D0D;
+  transition: opacity 0.5s;
+}
+
+.loading-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.loading-pct {
+  position: relative;
+  z-index: 1;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.hero-loading-bar {
+  position: relative;
+  z-index: 1;
+  width: 12rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+#load-bar {
+  height: 100%;
+  width: 0%;
+  background: #e6a756;
+  transition: width 0.1s linear;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-logo {
+  width: clamp(220px, 50vw, 420px);
+  height: auto;
+  animation: heroLogoEntrance 1.2s ease-out forwards;
+}
+
+@media (min-width: 768px) {
+  .hero-overlay {
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: clamp(2rem, 8vw, 6rem);
+  }
+  .hero-logo {
+    width: clamp(264px, 45vw, 500px);
+  }
+}
+
+.scroll-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: clamp(2rem, 8vw, 5rem);
+  color: #e6a756;
+  opacity: 1;
+  z-index: 30;
+  animation: bounceArrow 1.6s ease-in-out infinite;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.scroll-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@media (min-width: 768px) {
+  .scroll-arrow {
+    display: none;
+  }
+}
+
+@keyframes heroLogoEntrance {
+  0% { opacity: 0; transform: scale(0.85) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
